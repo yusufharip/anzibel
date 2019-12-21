@@ -6,10 +6,10 @@
     update_cache: yes
     state: present
   with_items:
-    - "{{ openjdk-8-jre-headless }}"
-    - "{{ libfontconfig }}"
-    - "{{ libffi-dev }}"
-    - "{{ libncurses5-dev }}"
+    - openjdk-8-jre-headless
+    - libfontconfig
+    - libffi-dev
+    - libncurses5-dev
 
 - name: Add the Jenkins public GPG key to the apt repo
   apt_key: 
@@ -32,7 +32,7 @@
     name: "{{ item }}" 
     state: latest
   with_items:
-    - "{{ ansible }}"
-    - "{{ boto }}"
-    - "{{ flake8 }}"
-    - "{{ passlib }}"
+    - ansible
+    - boto
+    - flake8
+    - passlib
