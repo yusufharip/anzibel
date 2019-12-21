@@ -1,28 +1,33 @@
 ---
 
 - name: Install packages and dependencies
+  become: yes
   apt: 
     name: ['openjdk-8-jre-headless', 'libfontconfig', 'libffi-dev', 'libncurses5-dev']
     update_cache: yes
     state: present
 
 - name: Add the Jenkins public GPG key to the apt repo
+  become: yes
   apt_key: 
     url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
     state: present
 
 - name: Add Jenkins apt repo to the trusted sources list
+  become: yes
   apt_repository: 
     repo: 'deb http://pkg.jenkins-ci.org/debian binary/'
     update_cache: yes
     state: present
 
 - name: Install Jenkins server
+  become: yes
   apt: 
     name: jenkins 
     state: present
 
 - name: Install additional Python packages
+  become: yes
   pip: 
     name: ['ansible', 'boto', 'flake8', 'passlib']
     state: latest
