@@ -1,5 +1,5 @@
 ---
 - name: Instance-a Playbook
-  hosts: instance-a
+  hosts: instance_a
   roles:
     - tree
