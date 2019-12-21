@@ -2,14 +2,9 @@
 
 - name: Install packages and dependencies
   apt: 
-    name: "{{ item }}"
+    name: ['openjdk-8-jre-headless', 'libfontconfig', 'libffi-dev', 'libncurses5-dev']
     update_cache: yes
     state: present
-  with_items:
-    - openjdk-8-jre-headless
-    - libfontconfig
-    - libffi-dev
-    - libncurses5-dev
 
 - name: Add the Jenkins public GPG key to the apt repo
   apt_key: 
@@ -29,10 +24,5 @@
 
 - name: Install additional Python packages
   pip: 
-    name: "{{ item }}" 
+    name: ['ansible', 'boto', 'flake8', 'passlib']
     state: latest
-  with_items:
-    - ansible
-    - boto
-    - flake8
-    - passlib
