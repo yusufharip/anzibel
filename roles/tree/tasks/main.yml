@@ -1,6 +1,6 @@
 ---
-    - name: install tree
-      become: yes
-      apt:
-        name: tree
-        state: present
+- name: install tree
+  become: yes
+  apt:
+    name: tree
+    state: present
