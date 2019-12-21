@@ -1,0 +1,5 @@
+---
+- name: Instance-a Playbook
+  hosts: instance-a
+  roles:
+    - tree

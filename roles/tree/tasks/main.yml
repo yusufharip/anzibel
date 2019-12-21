@@ -1,0 +1,7 @@
+---
+
+- name: install tree
+  become: yes
+  apt:
+    name: tree
+    state: present
