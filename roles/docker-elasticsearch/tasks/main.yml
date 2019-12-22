@@ -20,7 +20,7 @@
 - name: Render docker-compose from template
   template:
     src: docker-compose.j2
-    dest: /root/docker-es/docker-compose.yaml
+    dest: /root/docker-es/docker-compose.yml
 
 - name: Composing docker
   docker_compose:
