@@ -4,9 +4,10 @@
     name: nginx
     source: pull
 
-- name: stop nginx docker
+- name: stop docker-nginx
   docker:
     name: docker-nginx
+    image: nginx
     state: absent
 
 - name: create nginx html working dir
@@ -32,5 +33,5 @@
 - name: run docker nginx
   command: "docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx"
 
-  
+
 # masih belum setup jenkins sebagai sudoers
