@@ -31,3 +31,7 @@
   pip: 
     name: ['ansible', 'boto', 'flake8', 'passlib']
     state: latest
+
+- name: Add jenkins to sudoers
+  become: yes
+  command: "usermod -aG sudo jenkins"
