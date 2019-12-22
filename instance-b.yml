@@ -2,5 +2,5 @@
 - name: Instance-a Playbook
   hosts: instance_b
   roles:
-    - openjdk
+    - essential
     - docker
