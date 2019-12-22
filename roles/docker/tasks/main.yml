@@ -27,6 +27,10 @@
       become: yes
       command: "gpasswd -a jenkins docker"
     
+    - name: Add "vagrant" user to the docker group
+      become: yes
+      command: "gpasswd -a $USER docker"
+
     - name: Start docker service
       become: yes
       service:
