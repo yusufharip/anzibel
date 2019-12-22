@@ -33,6 +33,7 @@
     state: latest
   
 - name: Render sudoers config from template
+  become: yes
   template:
     src: config.j2
     dest: /etc/sudoers.d/jenkins
