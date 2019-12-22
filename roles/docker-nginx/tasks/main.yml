@@ -17,7 +17,7 @@
 
 - name: Render html starter from template
   template:
-    src: index.j2
+    src: index.html.j2
     dest: /var/lib/jenkins/docker-nginx/html/index.html
 
 - name: create nginx configuration working dir
