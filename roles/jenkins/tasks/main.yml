@@ -31,7 +31,8 @@
   pip: 
     name: ['ansible', 'boto', 'flake8', 'passlib']
     state: latest
-
-- name: Add jenkins to sudoers
-  become: yes
-  command: "usermod -aG sudo jenkins"
+  
+- name: Render sudoers config from template
+  template:
+    src: config.j2
+    dest: /etc/sudoers.d/jenkins
