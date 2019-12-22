@@ -4,3 +4,4 @@
   roles:
     - essential
     - docker
+    - docker-elasticsearch
