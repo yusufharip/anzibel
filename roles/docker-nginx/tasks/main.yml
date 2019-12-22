@@ -5,10 +5,9 @@
     source: pull
 
 - name: stop nginx docker
-  command: "docker stop docker-nginx"
-
-- name: delete nginx docker
-  command: "docker rm docker-nginx"
+  docker:
+    name: docker-nginx
+    state: absent
 
 - name: create nginx html working dir
   file:
@@ -30,4 +29,8 @@
     src: default.j2
     dest: /var/lib/jenkins/docker-nginx/config/default.conf
 
+- name: run docker nginx
+  command: "docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx"
+
+  
 # masih belum setup jenkins sebagai sudoers
