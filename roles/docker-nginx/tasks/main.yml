@@ -33,6 +33,7 @@
 - name: run docker nginx
   docker_container:
     name: docker-nginx
+    image: nginx
     state: started
     restart: yes
     volumes:
