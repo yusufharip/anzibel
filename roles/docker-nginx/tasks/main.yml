@@ -31,7 +31,7 @@
     dest: /var/lib/jenkins/docker-nginx/config/default.conf
 
 - name: run docker nginx
-  command: "docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx"
+  command: "docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html -v ~/docker-nginx/config/default.conf:/etc/nginx/conf.d/default.conf nginx"
 
 
 # masih belum setup jenkins sebagai sudoers
