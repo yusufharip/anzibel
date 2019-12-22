@@ -1,0 +1,11 @@
+---
+- name: install Nginx 
+  docker_image:
+    name: nginx
+    source: pull
+
+- name: stop nginx docker
+  command: "docker stop docker-nginx"
+
+- name: delete nginx docker
+  command: "docker rm docker-nginx"
