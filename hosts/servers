@@ -1,11 +1,11 @@
 [servers]
-host2 ansible_ssh_host=10.10.12.3
+host2 ansible_ssh_host=10.10.12.3 ansible_ssh_user=root
 
 [instance_a]
 127.0.0.1 ansible_connection=local
 
 [instance_b]
-10.10.12.3 ansible_connection=root
+10.10.12.3 ansible_ssh_user=root
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
