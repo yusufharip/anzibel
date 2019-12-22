@@ -23,9 +23,10 @@
         name: docker
         state: present
     
-    - name: Add your "jenkins" to the docker group
-      become: yes
-      command: "gpasswd -a jenkins docker"
+    # Dibutuhkan untuk provisiong pada instance a
+    #- name: Add your "jenkins" to the docker group
+    #  become: yes
+    #  command: "gpasswd -a jenkins docker"
     
     - name: Add "vagrant" user to the docker group
       become: yes
