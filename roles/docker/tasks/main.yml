@@ -1,0 +1,59 @@
+---
+    - name: Make sure docker cleaned
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: absent
+        update_cache: yes
+      vars:
+        packages:
+          - docker
+          - docker-engine
+          - docker.io
+    
+    - name: Install docker & docker-compose
+      become: yes
+      apt: 
+        name: docker.io
+        state: latest
+    
+    - name: Ensure group "docker" exists
+      become: yes
+      group:
+        name: docker
+        state: present
+    
+    - name: Add your "jenkins" to the docker group
+      become: yes
+      command: "gpasswd -a jenkins docker"
+    
+    - name: Start docker service
+      become: yes
+      service:
+        name: docker
+        state: started
+    
+    # Start docker service on boot
+    - name: Enable docker service
+      become: yes
+      service:
+        name: docker
+        enabled: yes
+    
+    # ! Ansible need docker compose, docker SDK for python, PyYaml
+    
+    - name: Docker compose
+      become: yes
+      pip:
+        name: docker-compose
+    
+    - name: Docker SDK for python
+      become: yes
+      pip:
+        name: docker
+    
+    - name: Install PyYAML
+      become: yes
+      pip:
+        name: pyyaml
+    
