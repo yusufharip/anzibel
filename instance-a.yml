@@ -2,5 +2,4 @@
 - name: Instance-a Playbook
   hosts: instance_a
   roles:
-    - docker
     - docker-nginx

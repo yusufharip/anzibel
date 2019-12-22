@@ -9,3 +9,25 @@
 
 - name: delete nginx docker
   command: "docker rm docker-nginx"
+
+- name: create nginx html working dir
+  file:
+    path: /var/lib/jenkins/docker-nginx/html
+    state: directory
+
+- name: Render html starter from template
+  template:
+    src: index.j2
+    dest: /var/lib/jenkins/docker-nginx/html/index.html
+
+- name: create nginx configuration working dir
+  file:
+    path: /var/lib/jenkins/docker-nginx/config
+    state: directory
+
+- name: Render html starter from template
+  template:
+    src: default.j2
+    dest: /var/lib/jenkins/docker-nginx/config/default.conf
+
+# masih belum setup jenkins sebagai sudoers
