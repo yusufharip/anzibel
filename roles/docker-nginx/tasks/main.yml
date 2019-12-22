@@ -5,7 +5,7 @@
     source: pull
 
 - name: stop docker-nginx
-  docker:
+  docker_container:
     name: docker-nginx
     image: nginx
     state: absent
