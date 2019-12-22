@@ -1,3 +1,17 @@
 ---
 
-name: Install elasticsearch
+- name: create docker es configuration working dir
+  file:
+    path: /root/docker-es
+    state: directory
+
+- name: Render html starter from template
+  template:
+    src: dockerfile.j2
+    dest: /root/docker-es/dockerfile
+
+- name: Build docker es image
+  docker_image:
+    name: docker-elastic
+    build: 
+        path: /root/docker-es
