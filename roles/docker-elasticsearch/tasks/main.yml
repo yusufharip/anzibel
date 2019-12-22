@@ -5,7 +5,7 @@
     path: /root/docker-es
     state: directory
 
-- name: Render html starter from template
+- name: Render dockerfile from template
   template:
     src: dockerfile.j2
     dest: /root/docker-es/dockerfile
@@ -16,3 +16,16 @@
     build: 
         path: /root/docker-es
     source: build
+
+- name: Render docker-compose from template
+    template:
+      src: docker-compose.j2
+      dest: /root/docker-es/docker-compose.yaml
+
+- name: Composing docker
+  docker_compose:
+    project_src: /root/docker-es
+    state: present
+
+- debug:
+    var: output
