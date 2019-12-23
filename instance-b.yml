@@ -3,4 +3,5 @@
   hosts: instance_b_production
   roles:
     - essential
+    - docker
     - docker-elasticsearch
