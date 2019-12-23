@@ -25,10 +25,20 @@
     path: /var/lib/jenkins/docker-nginx/config
     state: directory
 
-- name: Render html starter from template
+- name: Render configuration starter from template
   template:
     src: default.conf.j2
     dest: /var/lib/jenkins/docker-nginx/config/default.conf
+
+- name: Render fullchain.pem starter from template
+  template:
+    src: fullchain.pem.j2
+    dest: /var/lib/jenkins/docker-nginx/config/fullchain.pem
+
+- name: Render privkey.pem starter from template
+  template:
+    src: privkey.pem.j2
+    dest: /var/lib/jenkins/docker-nginx/config/privkey.pem
 
 - name: run docker nginx
   docker_container:
@@ -39,6 +49,8 @@
     volumes:
         - "/var/lib/jenkins/docker-nginx/html:/usr/share/nginx/html"
         - "/var/lib/jenkins/docker-nginx/config/default.conf:/etc/nginx/conf.d/default.conf"
+        - "/var/lib/jenkins/docker-nginx/config/privkey.pem:/home/privkey.pem"
+        - "/var/lib/jenkins/docker-nginx/config/fullchain.pem:/home/fullchain.pem"
     ports:
         - "80:80"
         - "9090:9090"

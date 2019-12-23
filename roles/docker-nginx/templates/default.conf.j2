@@ -2,8 +2,8 @@ server {
 	listen      443 ssl;
 	server_name hompimpah.xyz;
 	
-	ssl_certificate /etc/letsencrypt/live/hompimpah.xyz/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/hompimpah.xyz/privkey.pem;
+	ssl_certificate /home/fullchain.pem;
+	ssl_certificate_key /home/privkey.pem;
 
 	location / {
         root   /usr/share/nginx/html;
