@@ -13,4 +13,10 @@
 - name: enable ufw
   ufw:
     state: enabled
-  
+
+- name: allow elastic port to ip instance-b
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '9200'
+    src: 10.130.0.183
