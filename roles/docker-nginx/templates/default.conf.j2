@@ -36,6 +36,30 @@ server {
     }
 }
 
+# ELASCTICSEARCH PROXY CONFIGURATION START HERE
+
+upstream elasticsearch {
+	server http://10.130.32.156:9200;
+}
+
+server {
+	listen 80;
+
+	server_name elastic.hompimpah.xyz;
+	return 301 https://$host$request_uri;
+}
+
+server {
+	listen 443;
+	server_name elastic.hompimpah.xyz;
+
+	ssl_certificate /home/fullchain.pem;
+	ssl_certificate_key /home/privkey.pem;
+
+	location / {
+		proxy_pass http://elasticsearch;
+	}
+}
 
 # JENKINS PROXY CONFIGURATION START HERE
 upstream jenkins {
@@ -44,7 +68,6 @@ upstream jenkins {
 
 server {
 	listen 80;
-	listen [::]:80;
 
 	server_name jk.hompimpah.xyz;
 	return 301 https://$host$request_uri;
