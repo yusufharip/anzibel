@@ -1,5 +1,6 @@
 ---
-- name: Instance-a Playbook
-  hosts: instance_b
+- name: Instance-b Playbook
+  hosts: instance_b_production
   roles:
+    - essential
     - docker-elasticsearch

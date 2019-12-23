@@ -4,8 +4,11 @@ host2 ansible_ssh_host=10.10.12.3 ansible_ssh_user=root
 [instance_a]
 127.0.0.1 ansible_connection=local
 
-[instance_b]
+[instance_b_development]
 10.10.12.3 ansible_ssh_user=root
+
+[instance_b_production]
+10.130.32.156 ansible_ssh_user=root
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
