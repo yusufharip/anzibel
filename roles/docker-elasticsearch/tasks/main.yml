@@ -22,6 +22,9 @@
     src: docker-compose.j2
     dest: /root/docker-es/docker-compose.yml
 
+- name: increase virtual memory
+  command: "sudo sysctl -w vm.max_map_count=262144"
+
 - name: Composing docker
   docker_compose:
     project_src: /root/docker-es

@@ -1,0 +1,5 @@
+---
+- name: Instance-a Playbook for reverse proxy configuration
+  hosts: instance_a
+  roles:
+    - docker-nginx

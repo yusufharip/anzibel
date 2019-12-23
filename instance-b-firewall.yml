@@ -1,0 +1,5 @@
+---
+- name: Instance-b Playbook for firewall configuration
+  hosts: instance_b_production
+  roles:
+    - elastic-fw

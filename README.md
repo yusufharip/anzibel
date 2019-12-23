@@ -5,11 +5,12 @@ Topology will appear here
 ![GitHub Logo](/images/topology.png)
 
 ## Local Development
-I use vagrant to develop on local machine<br />
+**Vagrant**<br />
 You can view Vagrantfile for machine configuration
 
 ## Production
-DigitalOcean
+**Digital Ocean**<br />
+
 
 ## Configuration Process
 1. Configure **instance-a**
