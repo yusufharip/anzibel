@@ -74,13 +74,6 @@ server {
 		add_header Access-Control-Allow-Headers 'X-Requested-With, Content-Type';
 		add_header Access-Control-Allow-Credentials true;
     }
-
-    # redirect server error pages to the static page /50x.html
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-        root /usr/share/nginx/html;
-    }
-    access_log logs/es_access.log combined;
 }
 
 # JENKINS PROXY CONFIGURATION START HERE
