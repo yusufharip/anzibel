@@ -2,6 +2,7 @@
 - name: Instance-b Playbook
   hosts: instance_b_production
   roles:
-    - essential
-    - docker
-    - docker-elasticsearch
+    - elastic-fw
+    
+    
+# essential, docker, docker-elasticsearch

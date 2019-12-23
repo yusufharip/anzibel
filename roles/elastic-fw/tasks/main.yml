@@ -1,0 +1,16 @@
+---
+- name: ufw allow ssh
+  ufw:
+    rule: allow
+    port: ssh
+    proto: tcp
+
+- name: ufw default deny incoming
+  ufw:
+    default: deny
+    direction: incoming
+
+- name: enable ufw
+  ufw:
+    state: enabled
+  
