@@ -35,7 +35,7 @@ My droplets configuration like image above.
 
 ## Result
 You can view the result of this by visit:
-main url: https://hompimpah.xyz
-jenkins: https://jk.hompimpah.xyz
-elastic: https://elastic.hompimpah.xyz
-testing: https://testing.hompimpah.xyz
+* main url: https://hompimpah.xyz
+* jenkins: https://jk.hompimpah.xyz
+* elasticsearch: https://elastic.hompimpah.xyz
+* testing: https://testing.hompimpah.xyz
