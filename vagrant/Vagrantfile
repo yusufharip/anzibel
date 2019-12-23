@@ -1,0 +1,16 @@
+Vagrant.configure("2") do |config|
+    config.vm.define "instance-b" do |ins|
+        ins.vm.box = "instance-b"
+        ins.vm.box = "ubuntu/bionic64"
+        ins.vm.hostname = "instance-b"
+        ins.vm.network "private_network", ip: "10.10.12.3"
+    end
+
+    config.vm.define "instance-a" do |ins|
+        ins.vm.box = "instance-a"
+        ins.vm.box = "ubuntu/bionic64"
+        ins.vm.hostname = "instance-a"
+        ins.vm.network "private_network", ip: "10.10.12.2"
+        ins.vm.provision :shell, path: "instance-a.sh"
+    end
+end
