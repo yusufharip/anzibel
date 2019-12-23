@@ -1,46 +1,55 @@
 ---
 - name: install Nginx 
+  become: yes
   docker_image:
     name: nginx
     source: pull
 
 - name: stop docker-nginx
+  become: yes
   docker_container:
     name: docker-nginx
     image: nginx
     state: absent
 
 - name: create nginx html working dir
+  become: yes
   file:
     path: /var/lib/jenkins/docker-nginx/html
     state: directory
 
 - name: Render html starter from template
+  become: yes
   template:
     src: index.html.j2
     dest: /var/lib/jenkins/docker-nginx/html/index.html
 
 - name: create nginx configuration working dir
+  become: yes
   file:
     path: /var/lib/jenkins/docker-nginx/config
     state: directory
 
 - name: Render configuration starter from template
+  become: yes
   template:
     src: default.conf.j2
     dest: /var/lib/jenkins/docker-nginx/config/default.conf
 
 - name: Render fullchain.pem starter from template
+  become: yes
   template:
     src: fullchain.pem.j2
     dest: /var/lib/jenkins/docker-nginx/config/fullchain.pem
 
 - name: Render privkey.pem starter from template
+  become: yes
   template:
     src: privkey.pem.j2
     dest: /var/lib/jenkins/docker-nginx/config/privkey.pem
 
 - name: run docker nginx
+  become: yes
   docker_container:
     name: docker-nginx
     image: nginx
