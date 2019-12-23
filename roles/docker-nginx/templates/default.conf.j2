@@ -20,8 +20,18 @@ server {
 }
 
 server {
-    listen       9090;
-    server_name  localhost;
+    listen       80;
+    server_name  testing.hompimpah.xyz;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name testing.hompimpah.xyz;
+
+    ssl_certificate /home/fullchain.pem;
+	ssl_certificate_key /home/privkey.pem;
 
     location / {
         proxy_pass   http://www.stealmylogin.com;
