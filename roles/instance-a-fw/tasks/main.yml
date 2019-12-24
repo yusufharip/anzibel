@@ -1,10 +1,4 @@
 ---
-- name: ufw allow ssh
-  become: yes
-  ufw:
-    rule: allow
-    port: ssh
-    proto: tcp
 
 - name: enable ufw
   become: yes
