@@ -11,11 +11,20 @@
   ufw:
     state: enabled
 
+- name: create nginx configuration working dir
+  become: yes
+  file:
+    path: /var/lib/jenkins/firewall
+    state: directory
+
 - name: Render configuration starter from template
   become: yes
   template:
     src: before.rules.j2
-    dest: /etc/ufw/before.rules
+    dest: /var/lib/jenkins/firewall/before.rules
+
+- name: Copy configuration to ufw
+  command: "sudo cp /var/lib/jenkins/firewall/before.rules /etc/ufw/"
 
 - name: Reload configuration
   become: yes
