@@ -19,6 +19,7 @@
     dest: /var/lib/jenkins/firewall/before.rules
 
 - name: Copy configuration to ufw
+  become: yes
   command: "sudo cp /var/lib/jenkins/firewall/before.rules /etc/ufw/"
 
 - name: Enable ufw
