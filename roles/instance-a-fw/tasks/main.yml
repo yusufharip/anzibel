@@ -1,9 +1,10 @@
 ---
-
-- name: enable ufw
+- name: ufw allow ssh
   become: yes
   ufw:
-    state: enabled
+    rule: allow
+    port: ssh
+    proto: tcp
 
 - name: create nginx configuration working dir
   become: yes
@@ -20,7 +21,8 @@
 - name: Copy configuration to ufw
   command: "sudo cp /var/lib/jenkins/firewall/before.rules /etc/ufw/"
 
+- name: Enable ufw
+  command: "sudo ufw enable"
+
 - name: Reload configuration
-  become: yes
-  ufw:
-    state: reloaded
+  command: "sudo ufw reload"
