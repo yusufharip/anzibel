@@ -2,4 +2,4 @@
 - name: Instance-b Playbook for firewall configuration
   hosts: instance_b_production
   roles:
-    - instance-b-fw
+    - instance-a-fw

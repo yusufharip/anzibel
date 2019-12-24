@@ -2,7 +2,9 @@
 - name: Instance-a Playbook
   hosts: instance_a
   roles:
+    - docker
     - docker-nginx
+    - jenkins
 
 
 # 3 roles yang dijalankan pada playbook ini adalah docker, jenkins, docker-nginx

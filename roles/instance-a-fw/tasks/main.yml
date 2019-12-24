@@ -1,0 +1,23 @@
+---
+- name: ufw allow ssh
+  become: yes
+  ufw:
+    rule: allow
+    port: ssh
+    proto: tcp
+
+- name: enable ufw
+  become: yes
+  ufw:
+    state: enabled
+
+- name: Render configuration starter from template
+  become: yes
+  template:
+    src: before.rules.j2
+    dest: /etc/ufw/before.rules
+
+- name: Reload configuration
+  become: yes
+  ufw:
+    state: reloaded

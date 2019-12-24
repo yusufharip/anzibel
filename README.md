@@ -30,7 +30,6 @@ My droplets configuration like image above.
         * In this case i'm create freestyle jobs project on jenkins which run some command and invoke ansible-playbook
 2. Configure **instance-b**
     * Register ssh-key jenkins@instance-a on DigitalOcean so this instance auto get ssh-key for deployment server
-    * Create instance-b with minimum specification 2GB of RAM
     * Let the rest configuration executed in instance-a
 
 ## Result
