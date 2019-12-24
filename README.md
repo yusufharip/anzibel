@@ -23,7 +23,8 @@ My droplets configuration like image above.
         * **docker** : installment and configuration for docker
         * **essential** : mandatory application will be install here
         * **jenkins** : installment and configuration for jenkins
-        * **elastic-fw** : configuration firewall for elasticsearch (instance-b)
+        * **instance-b-fw** : configuration firewall for instance-b which allow PORT 9200 from docker to instance IP Address
+        * **instance-a-fw** : configuration firewall for instance-a DROP any ICMP IN from any address
     * Create ansible-playbook for execute targeted host with roles configuration
     * But first i have to setup deployment machine manually for ansible and then we can move to essentials roles
     * Configure jenkins and install plugins
