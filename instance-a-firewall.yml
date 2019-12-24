@@ -1,5 +1,5 @@
 ---
-- name: Instance-b Playbook for firewall configuration
-  hosts: instance_b_production
+- name: Instance-a Playbook for firewall configuration
+  hosts: instance_a
   roles:
     - instance-a-fw
