@@ -31,12 +31,6 @@
 -A ufw-before-input -m conntrack --ctstate INVALID -j DROP
 
 # ok icmp codes for INPUT
-# -A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT
-# -A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT
-# -A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT
-# -A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT
-
-# deny icmp codes for INPUT
 -A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP
 -A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP
 -A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP
@@ -79,4 +73,3 @@
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
-root@in
