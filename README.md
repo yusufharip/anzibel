@@ -1,7 +1,6 @@
 # Information
 
 ## Topology and Server Specification
-Topology will appear here
 ![Topology](/images/topology.jpeg)
 
 ## Development
